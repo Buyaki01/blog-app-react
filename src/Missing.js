@@ -6,4 +6,4 @@ const Missing = () => {
   )
 }
 
-export default Missing
+export default Missing;
