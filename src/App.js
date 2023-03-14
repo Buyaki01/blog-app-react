@@ -39,6 +39,10 @@ function App() {
   const [search, setSearch] = useState('')
   const [searchResults, setSearchResults] = useState([])
 
+  const handleDelete = (id) => {
+    
+  }
+
   return (
     <div className="App">
       <Header title="React JS Blog" />

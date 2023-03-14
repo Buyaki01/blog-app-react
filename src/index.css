@@ -42,6 +42,19 @@
   padding: 10px;
 }
 
+.postTitle, .postDate, .postBody{
+  margin-bottom: 5px;
+}
+
+.missingPage{
+  margin-bottom: 6px;
+}
+
+.visitHomePage{
+  color: rgb(146, 212, 59);
+  text-decoration: underline;
+}
+
 .Footer{
   background-color: rgb(146, 212, 59);
   text-align: center;
