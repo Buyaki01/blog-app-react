@@ -49,7 +49,7 @@ function App() {
     
         <Route path="/post" element={<NewPost />} />
       
-        <Route path="/post/:id" element={<PostPage />} />
+        <Route path="/post/:id" element={<PostPage posts={posts} handleDelete={handleDelete} />} />
       
         <Route path="/about" element={<About />}/>
       
