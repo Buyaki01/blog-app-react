@@ -32,3 +32,13 @@
 .navLinks{
   color: #fff;
 }
+
+.Home{
+  min-height: 70vh;
+}
+
+.Footer{
+  background-color: rgb(146, 212, 59);
+  text-align: center;
+  color: #fff;
+}
