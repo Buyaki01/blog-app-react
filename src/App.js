@@ -11,7 +11,7 @@ import { Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <Header/>
+      <Header title="React JS Blog" />
       <Nav/>
 
       <Routes>
