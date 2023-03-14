@@ -35,6 +35,11 @@
 
 .Home{
   min-height: 70vh;
+  flex-grow: 1;
+}
+
+.post{
+  padding: 10px;
 }
 
 .Footer{
