@@ -6,7 +6,7 @@ import PostPage from "./PostPage";
 import About from "./About";
 import Missing from "./Missing";
 import Footer from "./Footer";
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useState } from "react";
 
 function App() {
@@ -38,9 +38,12 @@ function App() {
   ])
   const [search, setSearch] = useState('')
   const [searchResults, setSearchResults] = useState([])
+  const navigate = useNavigate();
 
   const handleDelete = (id) => {
-    
+    const postsList = posts.filter(post => post.id !== id)
+    setPosts(postsList)
+    navigate('/');
   }
 
   return (
