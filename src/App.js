@@ -7,12 +7,15 @@ import About from "./About";
 import Missing from "./Missing";
 import Footer from "./Footer";
 import { Routes, Route } from 'react-router-dom';
+import { useState } from "react";
 
 function App() {
+  const [search, setSearch] = useState('')
+
   return (
     <div className="App">
       <Header title="React JS Blog" />
-      <Nav/>
+      <Nav search={search} setSearch={setSearch}/>
 
       <Routes>
         <Route path="/" element={<Home />} />

@@ -4,12 +4,11 @@
 
 .Header{
   background-color: rgb(146, 212, 59);
-  color: #fff;
   padding: 13px;
 }
 
 .Nav{
-  background-color: rgb(167, 163, 163);
+  background-color: rgb(129, 127, 127);
   padding: 13px;
 }
 
@@ -26,7 +25,10 @@
 }
 
 .searchInputField{
-  padding: 10px;
-  width: 20%;
+  padding: 6px;
+  width: 30%;
 }
 
+.navLinks{
+  color: #fff;
+}
