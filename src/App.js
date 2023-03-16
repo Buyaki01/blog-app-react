@@ -41,6 +41,8 @@ function App() {
   const [searchResults, setSearchResults] = useState([])
   const [postTitle, setPostTitle] = useState('')
   const [postBody, setPostBody] = useState('')
+  const [editTitle, setEditTitle] = useState('')
+  const [editBody, setEditBody] = useState('')
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -62,6 +64,16 @@ function App() {
     setPostBody('')
     navigate('/')
   }
+
+  const handleEdit = (id) => {
+    const datetime = format(new Date(), 'MMMM dd, yyyy pp')
+    const updatePost = {id, title: editTitle, datetime, body:  editBody}
+    const addUpdatedPost = [...posts, updatePost]
+    setPosts(posts.map(post => post.id === id ? { ...posts, addUpdatedPost} : post));
+    setEditTitle('')
+    setEditBody('')
+    navigate('/')
+  } 
 
   const handleDelete = (id) => {
     const postsList = posts.filter(post => post.id !== id)
