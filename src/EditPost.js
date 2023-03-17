@@ -1,3 +1,4 @@
+import { useEffect, Link } from "react"
 import { useParams } from "react-router-dom"
 
 const EditPost = ({posts, handleEdit, editTitle, setEditTitle, editBody, setEditBody}) => {
@@ -42,7 +43,7 @@ const EditPost = ({posts, handleEdit, editTitle, setEditTitle, editBody, setEdit
               </div>
             </div>
             <div className="flex justify-center">
-              <button type="submit" className="w-40 m-3 p-2 text-center  bg-gray-500 text-white round border">Submit</button>
+              <button type="submit" onClick={() => handleEdit(post.id)} className="w-40 m-3 p-2 text-center  bg-gray-500 text-white round border">Submit</button>
             </div>
           </form>
         </>

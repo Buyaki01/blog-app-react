@@ -99,6 +99,7 @@ function App() {
         />} />
 
         <Route path="/edit/:id" element={<EditPost 
+          posts={posts}
           editTitle={editTitle}
           setEditTitle={setEditTitle}
           editBody={editBody}
