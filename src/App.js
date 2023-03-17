@@ -2,6 +2,7 @@ import Header from "./Header";
 import Nav from "./Nav";
 import Home from "./Home";
 import NewPost from "./NewPost";
+import EditPost from "./EditPost";
 import PostPage from "./PostPage";
 import About from "./About";
 import Missing from "./Missing";
@@ -41,6 +42,8 @@ function App() {
   const [searchResults, setSearchResults] = useState([])
   const [postTitle, setPostTitle] = useState('')
   const [postBody, setPostBody] = useState('')
+  const [editTitle, setEditTitle] = useState('')
+  const [editBody, setEditBody] = useState('')
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -60,6 +63,16 @@ function App() {
     setPosts(allPosts);
     setPostTitle('')
     setPostBody('')
+    navigate('/')
+  }
+
+  const handleEdit = (id) => {
+    const datetime = format(new Date(), 'MMMM dd, yyyy pp')
+    const updatedPost = {id, title: editTitle, datetime, body:  editBody}
+    const allUpdatedPosts = [...posts, updatedPost]
+    setPosts(posts.map(post => post.id === id ? {allUpdatedPosts} : post));
+    setEditTitle('')
+    setEditBody('')
     navigate('/')
   }
 
@@ -83,6 +96,14 @@ function App() {
           postBody={postBody}
           setPostBody={setPostBody}
           handleSubmit={handleSubmit}
+        />} />
+
+        <Route path="/edit/:id" element={<EditPost 
+          editTitle={editTitle}
+          setEditTitle={setEditTitle}
+          editBody={editBody}
+          setEditBody={setEditBody}
+          handleEdit={handleEdit}
         />} />
       
         <Route path="/post/:id" element={<PostPage posts={posts} handleDelete={handleDelete} />} />

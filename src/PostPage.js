@@ -12,6 +12,7 @@ const PostPage = ({posts, handleDelete}) => {
             <h2 className="postTitle">{post.title}</h2>
             <p className="postDate">{post.datetime}</p>
             <p className="postBody">{post.body}</p>
+            
             <button 
               onClick={() => handleDelete(post.id)}
               className="m-5 p-3 bg-gray-500 text-white round border"
