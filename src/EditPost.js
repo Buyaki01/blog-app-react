@@ -1,8 +1,8 @@
-import { useEffect, Link } from "react"
-import { useParams } from "react-router-dom"
+import { useEffect } from "react"
+import { useParams, Link } from "react-router-dom"
 
 const EditPost = ({posts, handleEdit, editTitle, setEditTitle, editBody, setEditBody}) => {
-  const { id } = useParams
+  const { id } = useParams()
   const post = posts.find(post => (post.id).toString() === id)
 
   useEffect(() => {
