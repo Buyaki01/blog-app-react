@@ -2,6 +2,7 @@ import Header from "./Header";
 import Nav from "./Nav";
 import Home from "./Home";
 import NewPost from "./NewPost";
+import EditPost from "./EditPost";
 import PostPage from "./PostPage";
 import About from "./About";
 import Missing from "./Missing";
@@ -67,13 +68,13 @@ function App() {
 
   const handleEdit = (id) => {
     const datetime = format(new Date(), 'MMMM dd, yyyy pp')
-    const updatePost = {id, title: editTitle, datetime, body:  editBody}
-    const addUpdatedPost = [...posts, updatePost]
-    setPosts(posts.map(post => post.id === id ? { ...posts, addUpdatedPost} : post));
+    const updatedPost = {id, title: editTitle, datetime, body:  editBody}
+    const allUpdatedPosts = [...posts, updatedPost]
+    setPosts(posts.map(post => post.id === id ? {allUpdatedPosts} : post));
     setEditTitle('')
     setEditBody('')
     navigate('/')
-  } 
+  }
 
   const handleDelete = (id) => {
     const postsList = posts.filter(post => post.id !== id)
@@ -95,6 +96,15 @@ function App() {
           postBody={postBody}
           setPostBody={setPostBody}
           handleSubmit={handleSubmit}
+        />} />
+
+        <Route path="/edit/:id" element={<EditPost 
+          posts={posts}
+          editTitle={editTitle}
+          setEditTitle={setEditTitle}
+          editBody={editBody}
+          setEditBody={setEditBody}
+          handleEdit={handleEdit}
         />} />
       
         <Route path="/post/:id" element={<PostPage posts={posts} handleDelete={handleDelete} />} />
