@@ -10,6 +10,7 @@ import Footer from "./Footer";
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react"
 import { format } from "date-fns";
+import apiRequest from "./apiRequest";
 
 function App() {
   const [posts, setPosts] = useState([])
@@ -20,6 +21,27 @@ function App() {
   const [editTitle, setEditTitle] = useState('')
   const [editBody, setEditBody] = useState('')
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try{
+        const response = await apiRequest.get('/posts')
+        setPosts(response.data)
+      }catch(err){
+        if(err.response){
+          //Not in the 200 response range
+          console.log(err.response.data)
+          console.log(err.response.status)
+          console.log(err.response.headers)
+        }
+        else{
+          //Response is undefined. No response at all or a 404 Error
+          console.log(`Error: ${err.message}`)
+        }
+      }
+    }
+    fetchPosts()
+  }, [])
 
   useEffect(() => {
     const filteredResults = posts.filter(post => 
