@@ -6,9 +6,10 @@ const NewPost = ({postTitle, setPostTitle, postBody, setPostBody, handleSubmit})
       <form className="newPostForm" onSubmit={handleSubmit}>
         <div className="m-3">
           <label htmlFor="title">Title:</label>
-          <div className="mt-3 border-2 w-50">
+          <div className="mt-3">
             <input 
               id="postTitle"
+              className="border-2 p-3 w-full"
               type="text"
               required
               value={postTitle}
@@ -18,9 +19,10 @@ const NewPost = ({postTitle, setPostTitle, postBody, setPostBody, handleSubmit})
         </div>
         <div className="m-3">
           <label htmlFor="body"> Body: </label>
-          <div className="mt-3 border-2 w-50">
+          <div className="mt-3">
             <textarea
               id="postBody"
+              className="border-2 p-3 w-full"
               required
               value={postBody}
               onChange={(e) => setPostBody(e.target.value)}
