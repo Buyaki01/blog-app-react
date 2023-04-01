@@ -11,6 +11,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react"
 import { format } from "date-fns";
 import apiRequest from "./apiRequest";
+import { DataProvider } from "./context/DataContext";
 
 function App() {
   const [posts, setPosts] = useState([])
@@ -95,37 +96,39 @@ function App() {
 
   return (
     <div className="App">
-      <Header title="React JS Blog" />
-      <Nav search={search} setSearch={setSearch}/>
+      <DataProvider>
+        <Header title="React JS Blog" />
+        <Nav search={search} setSearch={setSearch}/>
 
-      <Routes>
-        <Route path="/" element={<Home posts={searchResults} />} />
-    
-        <Route path="/post" element={<NewPost 
-          postTitle={postTitle}
-          setPostTitle={setPostTitle}
-          postBody={postBody}
-          setPostBody={setPostBody}
-          handleSubmit={handleSubmit}
-        />} />
+        <Routes>
+          <Route path="/" element={<Home posts={searchResults} />} />
+      
+          <Route path="/post" element={<NewPost 
+            postTitle={postTitle}
+            setPostTitle={setPostTitle}
+            postBody={postBody}
+            setPostBody={setPostBody}
+            handleSubmit={handleSubmit}
+          />} />
 
-        <Route path="/edit/:id" element={<EditPost 
-          posts={posts}
-          editTitle={editTitle}
-          setEditTitle={setEditTitle}
-          editBody={editBody}
-          setEditBody={setEditBody}
-          handleEdit={handleEdit}
-        />} />
-      
-        <Route path="/post/:id" element={<PostPage posts={posts} handleDelete={handleDelete} />} />
-      
-        <Route path="/about" element={<About />}/>
-      
-        <Route path="*" element={<Missing />}/>
-      </Routes>
+          <Route path="/edit/:id" element={<EditPost 
+            posts={posts}
+            editTitle={editTitle}
+            setEditTitle={setEditTitle}
+            editBody={editBody}
+            setEditBody={setEditBody}
+            handleEdit={handleEdit}
+          />} />
+        
+          <Route path="/post/:id" element={<PostPage posts={posts} handleDelete={handleDelete} />} />
+        
+          <Route path="/about" element={<About />}/>
+        
+          <Route path="*" element={<Missing />}/>
+        </Routes>
 
-      <Footer/>
+        <Footer/>
+      </DataProvider>
     </div>
   );
 }
