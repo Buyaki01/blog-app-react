@@ -78,10 +78,15 @@ function App() {
     window.location.href='http://localhost:3000/'
   }
 
-  const handleDelete = (id) => {
-    const postsList = posts.filter(post => post.id !== id)
-    setPosts(postsList)
-    navigate('/')
+  const handleDelete = async (id) => {
+    try{
+      await apiRequest.delete(`/posts/${id}`)
+      const postsList = posts.filter(post => post.id !== id)
+      setPosts(postsList)
+      navigate('/')
+    }catch(err){
+      console.log(`Error: ${err.message}`)
+    }
   }
 
   return (
