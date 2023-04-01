@@ -18,12 +18,13 @@ const EditPost = ({posts, handleEdit, editTitle, setEditTitle, editBody, setEdit
       {editTitle && 
         <>
           <h2 className="ml-3 text-2xl">Edit Post</h2>
-          <form className="newPostForm" onSubmit={(e) => e.preventDefault}>
+          <form className="newPostForm" onSubmit={(e) => e.preventDefault()}>
             <div className="m-3">
               <label htmlFor="title">Title:</label>
-              <div className="mt-3 border-2 w-50">
+              <div className="mt-3">
                 <input 
                   id="editTitle"
+                  className="p-2 border-2 w-full"
                   type="text"
                   required
                   value={editTitle}
@@ -33,9 +34,10 @@ const EditPost = ({posts, handleEdit, editTitle, setEditTitle, editBody, setEdit
             </div>
             <div className="m-3">
               <label htmlFor="body"> Body: </label>
-              <div className="mt-3 border-2 w-50">
+              <div className="mt-3">
                 <textarea
                   id="editBody"
+                  className="border-2 p-3 w-full"
                   required
                   value={editBody}
                   onChange={(e) => setEditBody(e.target.value)}
